@@ -4,9 +4,13 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+/**
+ * Entidade que representa um Pedido (Order).
+ */
 @Entity
 @Table(name = "orders")
 public class Order {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,11 +18,18 @@ public class Order {
     @NotBlank(message = "Description is required")
     private String description;
 
+    /**
+     * Relacionamento N:1 com Cliente.
+     * JoinColumn define a chave estrangeira.
+     * JsonBackReference evita recursão na serialização.
+     */
     @ManyToOne
     @JoinColumn(name = "customer_id")
     @JsonBackReference
     private Customer customer;
 
+
+    // Getters e setters
     public Long getId() {
         return id;
     }
