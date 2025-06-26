@@ -11,10 +11,13 @@ API RESTful com operações CRUD para as entidades `Customer` e `Order`, usando 
 - SpringDoc OpenAPI (Swagger)
 
 ## ⚙️ Como executar
-1. Instale PostgreSQL e crie o banco `demo`:
+1. O projeto está com deploy no Render para teste/cliente final, portanto as configurações/credenciais do banco de dados no application.properties está configurado de acordo com o banco de dados Postgree criado no Render.
+OU
+1.5 Instale PostgreSQL e crie o banco `demo`:
 ```sql
 CREATE DATABASE demo;
 ```
+
 2. Configure o acesso no arquivo `application.properties`
 ```
 spring.datasource.url=jdbc:postgresql://localhost:5432/demo
